@@ -72,7 +72,7 @@
         }).addTo(mymap);
 
 
-        var geojsonFeature = JSON.parse(data);
+        var geojsonFeature = JSON.parse(JSON.stringify(data));
 
         var myLayer = L.geoJSON(geojsonFeature).addTo(mymap); // geojson 레이어를 'map'위에 추가한다.
 
