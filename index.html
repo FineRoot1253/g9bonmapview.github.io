@@ -28,6 +28,7 @@
             height: 100%;
         }
     </style>
+    <script src="..world_map.json" type="text/javascript"></script>
 
 </head>
 
@@ -49,7 +50,7 @@
          * 2. 대부분의 Leaflet 메소드는 반환되는 명확한 값이 없으면 jQuery 체이닝과 같이 map 객체를 반환한다.
          *    (따라서 setView 메소드 또한 map 객체 반환)
          */
-        var mymap = L.map('mapid').setView([51.505, -0.09], 3);
+        var mymap = L.map('mapid').setView([51.505, -0.09], 13);
 
         /**
          * [생성된 맵에 타일 레이어 추가] (Mapbox Street 타일레이어)
@@ -72,7 +73,7 @@
         }).addTo(mymap);
 
 
-        var geojsonFeature = 
+        var geojsonFeature = JSON.parse(data);
 
         var myLayer = L.geoJSON().addTo(mymap); // geojson 레이어를 'map'위에 추가한다.
 
