@@ -50,7 +50,7 @@
          *    (따라서 setView 메소드 또한 map 객체 반환)
          */
         var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-
+    init();
         /**
          * [생성된 맵에 타일 레이어 추가] (Mapbox Street 타일레이어)
          *
@@ -71,17 +71,30 @@
             accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw' // mapbox 가입 후 발급되는 토큰 입력
         }).addTo(mymap);
 
-
-        var geojsonFeature = JSON.parse(JSON.stringify(data));
-
-        var myLayer = L.geoJSON(geojsonFeature).addTo(mymap); // geojson 레이어를 'map'위에 추가한다.
-
-            geojson.eachLayer(function (layer) {
-                    layer.bindPopup(layer.feature.properties.name);
-                });// 생성한 geojson레이어에 앞서 마련해둔 geojsonFeature데이터를 추가한다.
             
+    var xhr = new XMLHttpRequest();
+    var paramVal = "paramVal";
+    var target = "URL";
+    xhr.open("GET", target + "?paramName=" + paramVal);
+    xhr.send();
 
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status == 200) {
+                let loadedJSON = JSON.parse(xhr.responseText);
+                // var geojsonFeature = JSON.parse(JSON.stringify(data));
 
+                var myLayer = L.geoJSON(loadedJSON).addTo(mymap); // geojson 레이어를 'map'위에 추가한다.
+
+                geojson.eachLayer(function (layer) {
+                    layer.bindPopup(layer.feature.properties.name);
+                }); 
+                $("#content").html("resultCode: " + loadedJSON.resultCode + "<br>");
+            } else {
+                alert("fail to load");
+            }
+        }
+    }
 
   /**
          * Leaflet은 공급자에 구애받지 않으며, 타일에 대해 특정 공급자를 선택하도록 강요하지 않는다.
