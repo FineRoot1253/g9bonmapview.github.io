@@ -142,8 +142,8 @@
         function getOpacity(d) {
             var pharsedUserData = JSON.parse(userData);
             console.log("getOpacity");
-            console.log(userData.OVER);
-            userData.OVER.forEach((e) => {
+            console.log(userData["OVER"]);
+            userData["OVER"].forEach((e) => {
                 console.log(e);
             });
             if (userData["0"].includes(d)) console.log("getOpacity : ", userData.includes(d) ? 0.1 : 1);
