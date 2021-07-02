@@ -79,7 +79,7 @@
                 let loadedJSON = JSON.parse(xhr.responseText);
                 var myLayer = L.geoJSON(loadedJSON).addTo(mymap); // geojson 레이어를 'map'위에 추가한다.
 
-                geojson.eachLayer(function (layer) {
+                myLayer.eachLayer(function (layer) {
                     layer.bindPopup(layer.feature.properties.name);
                 });
             } else {
