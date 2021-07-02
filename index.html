@@ -130,7 +130,10 @@
     	function getColor(d) {
             var pharsedUserData = JSON.parse(userData);
             console.log(d);
-            console.log(userData["0"]);
+            console.log(userData.OVER);
+            userData.OVER.foreach((e) => {
+                console.log(e);
+            });
             if(userData["0"].includes(d)) console.log("getColor : ", userData.includes(d) ? '#ffffff' : '#0059ff');
             return userData["0"].includes(d) ? '#0059ff' : '#ffffff';
                 
@@ -139,7 +142,10 @@
         function getOpacity(d) {
             var pharsedUserData = JSON.parse(userData);
             console.log(d);
-            console.log(userData["0"]);
+            console.log(userData.OVER);
+            userData.OVER.foreach((e) => {
+                console.log(e);
+            });
             if (userData["0"].includes(d)) console.log("getOpacity : ", userData.includes(d) ? 0.1 : 1);
 
             return userData.includes(d) ? 1 : 0.1;
