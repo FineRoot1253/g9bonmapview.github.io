@@ -50,13 +50,10 @@
          */
         var mymap = L.map('mapid').setView([37.505, 126.90], 1);
 
-        L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
-                maxZoom: 20,
-                attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+ 
+        L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(mymap);
-        // L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        //         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        //     }).addTo(map);
         /**
          * [생성된 맵에 타일 레이어 추가] (Mapbox Street 타일레이어)
          *
