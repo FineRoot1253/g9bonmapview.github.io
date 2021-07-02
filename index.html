@@ -8,7 +8,7 @@
     <!-- Leaf css/js 를 추가해준다. -->
     <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.3.4/dist/leaflet.css"/>
     <script src="https://npmcdn.com/leaflet@1.3.4/dist/leaflet.js"></script>
-    <script src="./Leaflet.Editable.js"></script>
+    <script src="http://leaflet.github.io/Leaflet.Editable/src/Leaflet.Editable.js"></script>
 
     <script defer src="./world_map.json" type="text/javascript"></script>
 
@@ -46,7 +46,12 @@
          * 2. 대부분의 Leaflet 메소드는 반환되는 명확한 값이 없으면 jQuery 체이닝과 같이 map 객체를 반환한다.
          *    (따라서 setView 메소드 또한 map 객체 반환)
          */
-        var mymap = L.map('mapid').setView([37.505, 126.90], 2);
+        var mymap = L.map('mapid',{
+                editable: true,
+                maxBounds: [
+                    [-90, -180],
+                    [90, 180]
+                ]}).setView([37.505, 126.90], 2);
 
  
         L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
