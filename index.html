@@ -129,16 +129,16 @@
     }
     	function getColor(d) {
             console.log(d);
-            console.log(userData[0]);
-            if(userData.includes(d)) console.log("getColor : ", userData.includes(d) ? '#ffffff' : '#0059ff');
+            console.log(userData.split(",")[0]);
+            if(userData.split(",").includes(d)) console.log("getColor : ", userData.includes(d) ? '#ffffff' : '#0059ff');
             return userData.includes(d) ? '#ffffff' : '#0059ff';
                 
         }
 
         function getOpacity(d) {
             console.log(d);
-            console.log(userData[0]);
-            if (userData.includes(d)) console.log("getOpacity : ", userData.includes(d) ? 0.1 : 1);
+            console.log(userData.split(",")[0]);
+            if (userData.split(",").includes(d)) console.log("getOpacity : ", userData.includes(d) ? 0.1 : 1);
 
             return userData.includes(d) ? 0.1 : 1;
         }
