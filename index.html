@@ -117,7 +117,7 @@
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status == 200) {
                 let loadedJSON = JSON.parse(xhr.responseText);
-                var myLayer = L.geoJSON(loadedJSON).addTo(mymap); // geojson 레이어를 'map'위에 추가한다.
+                var myLayer = L.geoJSON(loadedJSON,{style: style}).addTo(mymap); // geojson 레이어를 'map'위에 추가한다.
 
                 myLayer.eachLayer(function (layer) {
                     layer.bindPopup(layer.feature.properties.name);
@@ -127,25 +127,25 @@
             }
         }
     }
-    	// function getColor(d) {
-        //     return userData.includes(d) ? '#ffffff' : '#0059ff';
+    	function getColor(d) {
+            return userData.includes(d) ? '#ffffff' : '#0059ff';
                 
-        // }
+        }
 
-        // function getOpacity(d) {
-        //     return userData.includes(d) ? 0.1 : 1;
-        // }
+        function getOpacity(d) {
+            return userData.includes(d) ? 0.1 : 1;
+        }
 
-        // function style(feature) {
-        //         return {
-        //             weight: 2,
-        //             opacity: getOpacity(feature.properties.countryCode),
-        //             color: 'white',
-        //             dashArray: '3',
-        //             fillOpacity: 0.7,
-        //             fillColor: getColor(feature.properties.countryCode)
-        //         };
-        //     }
+        function style(feature) {
+                return {
+                    weight: 2,
+                    opacity: getOpacity(feature.properties.countryCode),
+                    color: 'white',
+                    dashArray: '3',
+                    fillOpacity: 0.7,
+                    fillColor: getColor(feature.properties.countryCode)
+                };
+            }
 
 
   /**
