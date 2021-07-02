@@ -126,13 +126,13 @@
                 alert("fail to load");
             }
         }
-    }
+    } 
     	function getColor(d) {
             var pharsedUserData = JSON.parse(userData);
             console.log(d);
             console.log(userData["0"]);
             if(userData["0"].includes(d)) console.log("getColor : ", userData.includes(d) ? '#ffffff' : '#0059ff');
-            return userData.includes(d) ? '#0059ff' : '#ffffff';
+            return userData["0"].includes(d) ? '#0059ff' : '#ffffff';
                 
         }
 
