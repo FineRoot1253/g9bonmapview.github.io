@@ -128,13 +128,13 @@
         }
     }
     	function getColor(d) {
-            console.log("getColor : ",userData);
+            console.log("getColor : ", userData.includes(d));
             return userData.includes(d) ? '#ffffff' : '#0059ff';
                 
         }
 
         function getOpacity(d) {
-            console.log("getOpacity : ",userData);
+            console.log("getOpacity : ", userData.includes(d));
 
             return userData.includes(d) ? 0.1 : 1;
         }
