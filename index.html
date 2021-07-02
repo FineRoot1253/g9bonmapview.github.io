@@ -131,7 +131,7 @@
             console.log(d);
             console.log(userData.split(",")[0]);
             if(userData.split(",").includes(d)) console.log("getColor : ", userData.includes(d) ? '#ffffff' : '#0059ff');
-            return userData.includes(d) ? '#ffffff' : '#0059ff';
+            return userData.includes(d) ? '#0059ff' : '#ffffff';
                 
         }
 
@@ -140,7 +140,7 @@
             console.log(userData.split(",")[0]);
             if (userData.split(",").includes(d)) console.log("getOpacity : ", userData.includes(d) ? 0.1 : 1);
 
-            return userData.includes(d) ? 0.1 : 1;
+            return userData.includes(d) ? 1 : 0.1;
         }
 
         function style(feature) {
