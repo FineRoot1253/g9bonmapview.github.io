@@ -130,25 +130,21 @@
     	function getColor(d) {
             var pharsedUserData = JSON.parse(userData);
             console.log("getColor");
-            console.log(userData["OVER"]);
-            userData.OVER.forEach((e) => {
-                console.log(e);
-            });
-            if(userData["0"].includes(d)) console.log("getColor : ", userData.includes(d) ? '#ffffff' : '#0059ff');
-            return userData["0"].includes(d) ? '#0059ff' : '#ffffff';
+            console.log(pharsedUserData["OVER"]);
+
+            if(pharsedUserData["0"].includes(d)) console.log("getColor : ", pharsedUserData["OVER"].includes(d) ? '#ffffff' : '#0059ff');
+            return pharsedUserData["0"].includes(d) ? '#0059ff' : '#ffffff';
                 
         }
 
         function getOpacity(d) {
             var pharsedUserData = JSON.parse(userData);
             console.log("getOpacity");
-            console.log(userData);
-            userData["OVER"].forEach((e) => {
-                console.log(e);
-            });
-            if (userData["0"].includes(d)) console.log("getOpacity : ", userData.includes(d) ? 0.1 : 1);
+            console.log(pharsedUserData.OVER);
 
-            return userData.includes(d) ? 1 : 0.1;
+            if (pharsedUserData.OVER.includes(d)) console.log("getOpacity : ", pharsedUserData["OVER"].includes(d) ? 0.1 : 1);
+
+            return pharsedUserData.OVER.includes(d) ? 1 : 0.1;
         }
 
         function style(feature) {
