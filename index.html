@@ -68,7 +68,36 @@
          * Mapbox 타일 사용 시 가입 후 엑세스토큰을 받아야 한다.
          * 해당 API는 256x256 대신에 512x512 타일을 반환하므로 zoomOffset 값을 -1로 지정했다.
          */
-    
+    // create custom vertex marker editor
+        var vertexMarkerClass = L.Editable.VertexMarker.extend({
+            onDrag: function (e) {
+                e.vertex = this;
+                var iconPos = L.DomUtil.getPosition(this._icon),
+                    latlng = this._map.layerPointToLatLng(iconPos);
+
+                // fix out of range vertex
+                if (latlng.lng < -180) {
+                    e.latlng.lng = latlng.lng = -180;
+                    this.setLatLng(latlng);
+                }
+                if (latlng.lng > 180) {
+                    e.latlng.lng = latlng.lng = 180;
+                    this.setLatLng(latlng);
+                }
+
+                this.editor.onVertexMarkerDrag(e);
+
+                this.latlng.update(latlng);
+                this._latlng = this.latlng; // Push back to Leaflet our reference.
+                this.editor.refresh();
+                if (this.middleMarker) this.middleMarker.updateLatLng();
+                var next = this.getNext();
+                if (next && next.middleMarker) next.middleMarker.updateLatLng();
+            }
+        });
+
+        // attach custom editor
+        mymap.editTools.options.vertexMarkerClass = vertexMarkerClass;
 
             
     var xhr = new XMLHttpRequest();
