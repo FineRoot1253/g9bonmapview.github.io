@@ -44,7 +44,10 @@
          * 2. 대부분의 Leaflet 메소드는 반환되는 명확한 값이 없으면 jQuery 체이닝과 같이 map 객체를 반환한다.
          *    (따라서 setView 메소드 또한 map 객체 반환)
          */
-        var mymap = L.map('mapid').setView([37.505, 126.90], 1).addLayer(new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"));
+        var mymap = L.map('mapid').setView([37.505, 126.90], 1);
+        L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
         /**
          * [생성된 맵에 타일 레이어 추가] (Mapbox Street 타일레이어)
          *
